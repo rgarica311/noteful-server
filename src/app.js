@@ -19,8 +19,14 @@ app.use(helmet())
 app.use(notesRouter)
 app.use(folderRouter)
 
-app.get('/', (req, res) => {
-  res.send('Hello, world!')
+app.use((error, req, res, next) => {
+  let response
+  if (process.env.NODE_ENV === 'production') {
+    response = { error: { message: 'server error' }}
+  } else {
+    response = { error }
+  }
+  res.status(500).json(response)
 })
 
 module.exports = app

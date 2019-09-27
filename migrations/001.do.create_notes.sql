@@ -8,6 +8,6 @@ CREATE TABLE notes (
   name text not null,
   modified text not null,
   content text not null,
-  folderId integer references folders(id)
+  folderid integer references folders(id)
   on delete cascade
 );
