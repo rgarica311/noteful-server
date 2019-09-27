@@ -9,5 +9,5 @@ CREATE TABLE notes (
   modified text not null,
   content text not null,
   folderId integer references folders(id)
-  on delete set null
+  on delete cascade
 );
