@@ -7,7 +7,6 @@ const NotesService = require('./notes-service')
 const notesRouter = express.Router()
 const bodyParser = express.json()
 
-
 const serializeNote = note => ({
   id: note.id,
   name: xss(note.name),
